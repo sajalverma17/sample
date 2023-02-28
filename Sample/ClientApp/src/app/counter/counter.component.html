@@ -1,0 +1,24 @@
+<h1>Add a Product</h1>
+
+<p>Add a product with a container to package it</p>
+
+<form class="add-product-form" [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Product Name</mat-label>
+    <input matInput placeholder="Ex. Tine Milk" formControlName="productName">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Container</mat-label>
+    <mat-select formControlName="containerCode">
+      <mat-option *ngFor="let container of containers" [value]="container.containerCode">
+        {{container.containerCode}} - {{container.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-fab color="warn" aria-label="Example icon button with a home icon"
+          type="submit">
+    <mat-icon>add</mat-icon>
+  </button>
+</form>
